@@ -115,13 +115,13 @@ class WidgetInspector extends DevToolsFrame
 
 	@Inject
 	private WidgetInspector(
-		Client client,
-		ClientThread clientThread,
-		WidgetInfoTableModel infoTableModel,
-		DevToolsConfig config,
-		EventBus eventBus,
-		Provider<WidgetInspectorOverlay> overlay,
-		OverlayManager overlayManager)
+			Client client,
+			ClientThread clientThread,
+			WidgetInfoTableModel infoTableModel,
+			DevToolsConfig config,
+			EventBus eventBus,
+			Provider<WidgetInspectorOverlay> overlay,
+			OverlayManager overlayManager)
 	{
 		this.client = client;
 		this.clientThread = clientThread;
@@ -132,7 +132,7 @@ class WidgetInspector extends DevToolsFrame
 
 		eventBus.register(this);
 
-		setTitle("OpenOSRS Widget Inspector");
+		setTitle("RuneLite Widget Inspector");
 
 		setLayout(new BorderLayout());
 
@@ -435,12 +435,12 @@ class WidgetInspector extends DevToolsFrame
 			Widget[] roots = client.getWidgetRoots();
 
 			parent = Stream.of(roots)
-				.filter(w -> w.getType() == WidgetType.LAYER && w.getContentType() == 0 && !w.isSelfHidden())
-				.sorted(Comparator.comparingInt((Widget w) -> w.getRelativeX() + w.getRelativeY())
-					.reversed()
-					.thenComparingInt(Widget::getId)
-					.reversed())
-				.findFirst().get();
+					.filter(w -> w.getType() == WidgetType.LAYER && w.getContentType() == 0 && !w.isSelfHidden())
+					.sorted(Comparator.comparingInt((Widget w) -> w.getRelativeX() + w.getRelativeY())
+							.reversed()
+							.thenComparingInt(Widget::getId)
+							.reversed())
+					.findFirst().get();
 			x = 4;
 			y = 4;
 		}
@@ -517,7 +517,7 @@ class WidgetInspector extends DevToolsFrame
 		{
 			MenuEntry entry = menuEntries[i];
 			if (entry.getType() != MenuAction.ITEM_USE_ON_WIDGET
-				&& entry.getType() != MenuAction.SPELL_CAST_ON_WIDGET)
+					&& entry.getType() != MenuAction.SPELL_CAST_ON_WIDGET)
 			{
 				continue;
 			}

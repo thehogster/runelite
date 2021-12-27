@@ -24,6 +24,7 @@
  */
 package net.runelite.client.plugins.config;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Splitter;
 import com.google.common.base.Strings;
 import com.google.common.collect.ComparisonChain;
@@ -61,32 +62,7 @@ import java.util.TreeMap;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import javax.inject.Inject;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
-import javax.swing.JSeparator;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ListCellRenderer;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
@@ -96,20 +72,7 @@ import javax.swing.text.JTextComponent;
 import lombok.extern.slf4j.Slf4j;
 import net.runelite.api.events.ConfigButtonClicked;
 import net.runelite.client.config.Button;
-import net.runelite.client.config.ConfigDescriptor;
-import net.runelite.client.config.ConfigGroup;
-import net.runelite.client.config.ConfigItem;
-import net.runelite.client.config.ConfigItemDescriptor;
-import net.runelite.client.config.ConfigManager;
-import net.runelite.client.config.ConfigObject;
-import net.runelite.client.config.ConfigSection;
-import net.runelite.client.config.ConfigSectionDescriptor;
-import net.runelite.client.config.ConfigTitle;
-import net.runelite.client.config.ConfigTitleDescriptor;
-import net.runelite.client.config.Keybind;
-import net.runelite.client.config.ModifierlessKeybind;
-import net.runelite.client.config.Range;
-import net.runelite.client.config.Units;
+import net.runelite.client.config.*;
 import net.runelite.client.eventbus.EventBus;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ExternalPluginsChanged;
@@ -134,6 +97,7 @@ import net.runelite.client.util.ImageUtil;
 import net.runelite.client.util.LinkBrowser;
 import net.runelite.client.util.SwingUtil;
 import net.runelite.client.util.Text;
+import org.apache.commons.lang3.ArrayUtils;
 
 @Slf4j
 class ConfigPanel extends PluginPanel
@@ -179,6 +143,8 @@ class ConfigPanel extends PluginPanel
 
 	private PluginConfigurationDescriptor pluginConfig = null;
 
+	@Inject
+	private RuneLiteConfig runeLiteConfig;
 
 	@Inject
 	private ConfigPanel(PluginListPanel pluginList, ConfigManager configManager, PluginManager pluginManager,
@@ -344,10 +310,10 @@ class ConfigPanel extends PluginPanel
 		final Map<String, JPanel> sectionWidgets = new HashMap<>();
 		final Map<String, JPanel> titleWidgets = new HashMap<>();
 		final Map<ConfigObject, JPanel> topLevelPanels = new TreeMap<>((a, b) ->
-			ComparisonChain.start()
-				.compare(a.position(), b.position())
-				.compare(a.name(), b.name())
-				.result());
+				ComparisonChain.start()
+						.compare(a.position(), b.position())
+						.compare(a.name(), b.name())
+						.result());
 
 		for (ConfigSectionDescriptor csd : cd.getSections())
 		{
@@ -364,8 +330,8 @@ class ConfigPanel extends PluginPanel
 			// For whatever reason, the header extends out by a single pixel when closed. Adding a single pixel of
 			// border on the right only affects the width when closed, fixing the issue.
 			sectionHeader.setBorder(new CompoundBorder(
-				new MatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
-				new EmptyBorder(0, 0, 3, 1)));
+					new MatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+					new EmptyBorder(0, 0, 3, 1)));
 			section.add(sectionHeader, BorderLayout.NORTH);
 
 			final JButton sectionToggle = new JButton(isOpen ? SECTION_RETRACT_ICON : SECTION_EXPAND_ICON);
@@ -387,8 +353,8 @@ class ConfigPanel extends PluginPanel
 			sectionContents.setLayout(new DynamicGridLayout(0, 1, 0, 5));
 			sectionContents.setMinimumSize(new Dimension(PANEL_WIDTH, 0));
 			sectionContents.setBorder(new CompoundBorder(
-				new MatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
-				new EmptyBorder(BORDER_OFFSET, 0, BORDER_OFFSET, 0)));
+					new MatteBorder(0, 0, 1, 0, ColorScheme.MEDIUM_GRAY_COLOR),
+					new EmptyBorder(BORDER_OFFSET, 0, BORDER_OFFSET, 0)));
 			sectionContents.setVisible(isOpen);
 			section.add(sectionContents, BorderLayout.SOUTH);
 
@@ -567,8 +533,8 @@ class ConfigPanel extends PluginPanel
 		resetButton.addActionListener((e) ->
 		{
 			final int result = JOptionPane.showOptionDialog(resetButton, "Are you sure you want to reset this plugin's configuration?",
-				"Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
-				null, new String[]{"Yes", "No"}, "No");
+					"Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
+					null, new String[]{"Yes", "No"}, "No");
 
 			if (result == JOptionPane.YES_OPTION)
 			{
@@ -621,7 +587,13 @@ class ConfigPanel extends PluginPanel
 
 	private JCheckBox createCheckbox(ConfigDescriptor cd, ConfigItemDescriptor cid)
 	{
-		JCheckBox checkbox = new ToggleButton();
+		JCheckBox checkbox;
+		if (runeLiteConfig.rlCheckbox()) {
+			checkbox = new JCheckBox();
+			checkbox.setBackground(ColorScheme.LIGHT_GRAY_COLOR);
+		} else {
+			checkbox = new ToggleButton();
+		}
 		checkbox.setPreferredSize(new Dimension(26, 25));
 		checkbox.setSelected(Boolean.parseBoolean(configManager.getConfiguration(cd.getGroup().value(), cid.getItem().keyName())));
 		checkbox.addActionListener(ae -> changeConfiguration(checkbox, cd, cid));
@@ -644,7 +616,7 @@ class ConfigPanel extends PluginPanel
 		// Config may previously have been out of range
 		value = Ints.constrainToRange(value, min, max);
 
-		if (max < Integer.MAX_VALUE)
+		if (max < Integer.MAX_VALUE && runeLiteConfig.stupidSliders())
 		{
 			JLabel sliderValueLabel = new JLabel();
 			JSlider slider = new JSlider(min, max, value);
@@ -659,21 +631,21 @@ class ConfigPanel extends PluginPanel
 			}
 			slider.setPreferredSize(new Dimension(80, 25));
 			slider.addChangeListener((l) ->
-				{
-					if (units != null)
 					{
-						sliderValueLabel.setText(slider.getValue() + units.value());
-					}
-					else
-					{
-						sliderValueLabel.setText(String.valueOf(slider.getValue()));
-					}
+						if (units != null)
+						{
+							sliderValueLabel.setText(slider.getValue() + units.value());
+						}
+						else
+						{
+							sliderValueLabel.setText(String.valueOf(slider.getValue()));
+						}
 
-					if (!slider.getValueIsAdjusting())
-					{
-						changeConfiguration(slider, cd, cid);
+						if (!slider.getValueIsAdjusting())
+						{
+							changeConfiguration(slider, cd, cid);
+						}
 					}
-				}
 			);
 
 			SpinnerModel model = new SpinnerNumberModel(value, min, max, 1);
@@ -851,10 +823,10 @@ class ConfigPanel extends PluginPanel
 			public void mouseClicked(MouseEvent e)
 			{
 				RuneliteColorPicker colorPicker = colorPickerManager.create(
-					SwingUtilities.windowForComponent(ConfigPanel.this),
-					colorPickerBtn.getColor(),
-					cid.getItem().name(),
-					alphaHidden);
+						SwingUtilities.windowForComponent(ConfigPanel.this),
+						colorPickerBtn.getColor(),
+						cid.getItem().name(),
+						alphaHidden);
 				colorPicker.setLocation(getLocationOnScreen());
 				colorPicker.setOnColorChange(c ->
 				{
@@ -892,7 +864,7 @@ class ConfigPanel extends PluginPanel
 		heightSpinnerTextField.setColumns(4);
 
 		ChangeListener listener = e ->
-			configManager.setConfiguration(cd.getGroup().value(), cid.getItem().keyName(), widthSpinner.getValue() + "x" + heightSpinner.getValue());
+				configManager.setConfiguration(cd.getGroup().value(), cid.getItem().keyName(), widthSpinner.getValue() + "x" + heightSpinner.getValue());
 
 		widthSpinner.addChangeListener(listener);
 		heightSpinner.addChangeListener(listener);
@@ -942,8 +914,8 @@ class ConfigPanel extends PluginPanel
 	private HotkeyButton createKeybind(ConfigDescriptor cd, ConfigItemDescriptor cid)
 	{
 		Keybind startingValue = configManager.getConfiguration(cd.getGroup().value(),
-			cid.getItem().keyName(),
-			(Class<? extends Keybind>) cid.getType());
+				cid.getItem().keyName(),
+				(Class<? extends Keybind>) cid.getType());
 
 		HotkeyButton button = new HotkeyButton(startingValue, cid.getType() == ModifierlessKeybind.class);
 
@@ -964,7 +936,7 @@ class ConfigPanel extends PluginPanel
 		ParameterizedType parameterizedType = (ParameterizedType) cid.getType();
 		Class<? extends Enum> type = (Class<? extends Enum>) parameterizedType.getActualTypeArguments()[0];
 		Set<? extends Enum> set = configManager.getConfiguration(cd.getGroup().value(), null,
-			cid.getItem().keyName(), parameterizedType);
+				cid.getItem().keyName(), parameterizedType);
 
 		JPanel enumsetLayout = new JPanel(new GridLayout(0, 2));
 		List<ToggleButton> jcheckboxes = new ArrayList<>();
@@ -991,7 +963,7 @@ class ConfigPanel extends PluginPanel
 		Class enumType = cid.getItem().enumClass();
 
 		EnumSet enumSet = configManager.getConfiguration(cd.getGroup().value(),
-			cid.getItem().keyName(), EnumSet.class);
+				cid.getItem().keyName(), EnumSet.class);
 		if (enumSet == null || enumSet.contains(null))
 		{
 			enumSet = EnumSet.noneOf(enumType);
@@ -1074,10 +1046,10 @@ class ConfigPanel extends PluginPanel
 		else
 		{
 			Set<Object> values = components
-				.stream()
-				.filter(ToggleButton::isSelected)
-				.map(ToggleButton::getObject)
-				.collect(Collectors.toSet());
+					.stream()
+					.filter(ToggleButton::isSelected)
+					.map(ToggleButton::getObject)
+					.collect(Collectors.toSet());
 			configManager.setConfiguration(cd.getGroup().value(), cid.getItem().keyName(), values);
 		}
 	}
@@ -1089,8 +1061,8 @@ class ConfigPanel extends PluginPanel
 		if (!Strings.isNullOrEmpty(configItem.warning()))
 		{
 			final int result = JOptionPane.showOptionDialog(component, configItem.warning(),
-				"Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
-				null, new String[]{"Yes", "No"}, "No");
+					"Are you sure?", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE,
+					null, new String[]{"Yes", "No"}, "No");
 
 			if (result != JOptionPane.YES_OPTION)
 			{
@@ -1168,7 +1140,7 @@ class ConfigPanel extends PluginPanel
 	private void onExternalPluginsChanged(ExternalPluginsChanged ev)
 	{
 		if (pluginManager.getPlugins().stream()
-			.noneMatch(p -> p == this.pluginConfig.getPlugin()))
+				.noneMatch(p -> p == this.pluginConfig.getPlugin()))
 		{
 			pluginList.getMuxer().popState();
 		}
@@ -1205,10 +1177,10 @@ class ConfigPanel extends PluginPanel
 			boolean show = false;
 
 			List<String> itemHide = Splitter
-				.onPattern("\\|\\|")
-				.trimResults()
-				.omitEmptyStrings()
-				.splitToList(String.format("%s || %s", cid.getItem().unhide(), cid.getItem().hide()));
+					.onPattern("\\|\\|")
+					.trimResults()
+					.omitEmptyStrings()
+					.splitToList(String.format("%s || %s", cid.getItem().unhide(), cid.getItem().hide()));
 
 			for (ConfigItemDescriptor cid2 : cd.getItems())
 			{
@@ -1227,20 +1199,20 @@ class ConfigPanel extends PluginPanel
 							if (!cid.getItem().unhideValue().equals(""))
 							{
 								List<String> unhideValue = Splitter
-									.onPattern("\\|\\|")
-									.trimResults()
-									.omitEmptyStrings()
-									.splitToList(cid.getItem().unhideValue());
+										.onPattern("\\|\\|")
+										.trimResults()
+										.omitEmptyStrings()
+										.splitToList(cid.getItem().unhideValue());
 
 								show = unhideValue.contains(selectedItem.toString());
 							}
 							else if (!cid.getItem().hideValue().equals(""))
 							{
 								List<String> hideValue = Splitter
-									.onPattern("\\|\\|")
-									.trimResults()
-									.omitEmptyStrings()
-									.splitToList(cid.getItem().hideValue());
+										.onPattern("\\|\\|")
+										.trimResults()
+										.omitEmptyStrings()
+										.splitToList(cid.getItem().hideValue());
 
 								show = !hideValue.contains(selectedItem.toString());
 							}

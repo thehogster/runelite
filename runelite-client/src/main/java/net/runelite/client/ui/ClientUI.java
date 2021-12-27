@@ -110,7 +110,7 @@ public class ClientUI
 	private static final String CONFIG_CLIENT_BOUNDS = "clientBounds";
 	private static final String CONFIG_CLIENT_MAXIMIZED = "clientMaximized";
 	private static final String CONFIG_CLIENT_SIDEBAR_CLOSED = "clientSidebarClosed";
-	public static final BufferedImage ICON = ImageUtil.loadImageResource(ClientUI.class, "/openosrs.png");
+	public static final BufferedImage ICON = ImageUtil.loadImageResource(ClientUI.class, "/runelite.png");
 
 	@Getter
 	private TrayIcon trayIcon;
@@ -150,14 +150,14 @@ public class ClientUI
 
 	@Inject
 	private ClientUI(
-		RuneLiteConfig config,
-		KeyManager keyManager,
-		MouseManager mouseManager,
-		@Nullable Applet client,
-		ConfigManager configManager,
-		Provider<ClientThread> clientThreadProvider,
-		EventBus eventBus,
-		@Named("safeMode") boolean safeMode
+			RuneLiteConfig config,
+			KeyManager keyManager,
+			MouseManager mouseManager,
+			@Nullable Applet client,
+			ConfigManager configManager,
+			Provider<ClientThread> clientThreadProvider,
+			EventBus eventBus,
+			@Named("safeMode") boolean safeMode
 	)
 	{
 		this.config = config;
@@ -175,8 +175,8 @@ public class ClientUI
 	public void onConfigChanged(ConfigChanged event)
 	{
 		if (!event.getGroup().equals(CONFIG_GROUP) ||
-			event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
-			event.getKey().equals(CONFIG_CLIENT_BOUNDS))
+				event.getKey().equals(CONFIG_CLIENT_MAXIMIZED) ||
+				event.getKey().equals(CONFIG_CLIENT_BOUNDS))
 		{
 			return;
 		}
@@ -348,10 +348,10 @@ public class ClientUI
 						try
 						{
 							result = JOptionPane.showConfirmDialog(
-								frame,
-								"Are you sure you want to exit?", "Exit",
-								JOptionPane.OK_CANCEL_OPTION,
-								JOptionPane.QUESTION_MESSAGE);
+									frame,
+									"Are you sure you want to exit?", "Exit",
+									JOptionPane.OK_CANCEL_OPTION,
+									JOptionPane.QUESTION_MESSAGE);
 						}
 						catch (Exception e)
 						{
@@ -494,17 +494,17 @@ public class ClientUI
 			sidebarClosedIcon = ImageUtil.flipImage(sidebarOpenIcon, true, false);
 
 			sidebarNavigationButton = NavigationButton
-				.builder()
-				.priority(100)
-				.icon(sidebarOpenIcon)
-				.tooltip("Open SideBar")
-				.onClick(this::toggleSidebar)
-				.build();
+					.builder()
+					.priority(100)
+					.icon(sidebarOpenIcon)
+					.tooltip("Open SideBar")
+					.onClick(this::toggleSidebar)
+					.build();
 
 			sidebarNavigationJButton = SwingUtil.createSwingButton(
-				sidebarNavigationButton,
-				0,
-				null);
+					sidebarNavigationButton,
+					0,
+					null);
 
 			titleToolbar.addComponent(sidebarNavigationButton, sidebarNavigationJButton);
 
@@ -536,7 +536,7 @@ public class ClientUI
 				try
 				{
 					Rectangle clientBounds = configManager.getConfiguration(
-						CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
+							CONFIG_GROUP, CONFIG_CLIENT_BOUNDS, Rectangle.class);
 					if (clientBounds != null)
 					{
 						frame.setBounds(clientBounds);
@@ -553,10 +553,10 @@ public class ClientUI
 							if (scale != 1)
 							{
 								clientBounds.setRect(
-									clientBounds.getX() / scale,
-									clientBounds.getY() / scale,
-									clientBounds.getWidth() / scale,
-									clientBounds.getHeight() / scale);
+										clientBounds.getX() / scale,
+										clientBounds.getY() / scale,
+										clientBounds.getWidth() / scale,
+										clientBounds.getHeight() / scale);
 
 								frame.setMinimumSize(clientBounds.getSize());
 								frame.setBounds(clientBounds);
@@ -600,9 +600,9 @@ public class ClientUI
 		if (client != null && !(client instanceof Client))
 		{
 			SwingUtilities.invokeLater(() -> JOptionPane.showMessageDialog(frame,
-				"OpenOSRS has not yet been updated to work with the latest\n"
-					+ "game update, it will work with reduced functionality until then.",
-				"OpenOSRS is outdated", INFORMATION_MESSAGE));
+					"RuneLite has not yet been updated to work with the latest\n"
+							+ "game update, it will work with reduced functionality until then.",
+					"RuneLite is outdated", INFORMATION_MESSAGE));
 		}
 	}
 
@@ -675,7 +675,7 @@ public class ClientUI
 				}
 			}
 			System.exit(0);
-		}, "OpenOSRS Shutdown").start();
+		}, "RuneLite Shutdown").start();
 	}
 
 	/**
@@ -863,15 +863,15 @@ public class ClientUI
 		// Offset sidebar button if resizable mode logout is visible
 		final Widget logoutButton = client.getWidget(WidgetInfo.RESIZABLE_VIEWPORT_BOTTOM_LINE_LOGOUT_BUTTON);
 		final int y = logoutButton != null && !logoutButton.isHidden() && logoutButton.getParent() != null
-			? logoutButton.getHeight() + logoutButton.getRelativeY()
-			: 5;
+				? logoutButton.getHeight() + logoutButton.getRelativeY()
+				: 5;
 
 		final BufferedImage image = sidebarOpen ? sidebarClosedIcon : sidebarOpenIcon;
 
 		final Rectangle sidebarButtonRange = new Rectangle(x - 15, 0, image.getWidth() + 25, client.getRealDimensions().height);
 		final Point mousePosition = new Point(
-			client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
-			client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
+				client.getMouseCanvasPosition().getX() + client.getViewportXOffset(),
+				client.getMouseCanvasPosition().getY() + client.getViewportYOffset());
 
 		if (sidebarButtonRange.contains(mousePosition.getX(), mousePosition.getY()))
 		{
@@ -1049,8 +1049,8 @@ public class ClientUI
 
 		// Update window opacity if the frame is undecorated, translucency capable and not fullscreen
 		if (frame.isUndecorated() &&
-			frame.getGraphicsConfiguration().isTranslucencyCapable() &&
-			frame.getGraphicsConfiguration().getDevice().getFullScreenWindow() == null)
+				frame.getGraphicsConfiguration().isTranslucencyCapable() &&
+				frame.getGraphicsConfiguration().getDevice().getFullScreenWindow() == null)
 		{
 			frame.setOpacity(((float) config.windowOpacity()) / 100.0f);
 		}

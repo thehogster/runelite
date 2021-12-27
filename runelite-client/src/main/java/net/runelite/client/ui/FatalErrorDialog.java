@@ -81,7 +81,7 @@ public class FatalErrorDialog extends JDialog
 
 		try
 		{
-			BufferedImage logo = ImageUtil.loadImageResource(FatalErrorDialog.class, "openosrs_transparent.png");
+			BufferedImage logo = ImageUtil.loadImageResource(FatalErrorDialog.class, "runelite_transparent.png");
 			setIconImage(logo);
 
 			JLabel runelite = new JLabel();
@@ -104,7 +104,7 @@ public class FatalErrorDialog extends JDialog
 			}
 		});
 
-		setTitle("Fatal error starting OpenOSRS");
+		setTitle("Fatal error starting RuneLite");
 		setLayout(new BorderLayout());
 
 		Container pane = getContentPane();
@@ -114,7 +114,7 @@ public class FatalErrorDialog extends JDialog
 		leftPane.setBackground(ColorScheme.DARKER_GRAY_COLOR);
 		leftPane.setLayout(new BorderLayout());
 
-		JLabel title = new JLabel("There was a fatal error starting OpenOSRS");
+		JLabel title = new JLabel("There was a fatal error starting RuneLite");
 		title.setForeground(Color.WHITE);
 		title.setFont(font.deriveFont(16.f));
 		title.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -165,8 +165,8 @@ public class FatalErrorDialog extends JDialog
 		button.setBackground(ColorScheme.DARK_GRAY_COLOR);
 		button.setForeground(Color.LIGHT_GRAY);
 		button.setBorder(BorderFactory.createCompoundBorder(
-			BorderFactory.createMatteBorder(1, 0, 0, 0, ColorScheme.DARK_GRAY_COLOR.brighter()),
-			new EmptyBorder(4, 4, 4, 4)
+				BorderFactory.createMatteBorder(1, 0, 0, 0, ColorScheme.DARK_GRAY_COLOR.brighter()),
+				new EmptyBorder(4, 4, 4, 4)
 		));
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
 		button.setMaximumSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
@@ -202,31 +202,31 @@ public class FatalErrorDialog extends JDialog
 	{
 		if (err instanceof VerificationException || err instanceof GeneralSecurityException)
 		{
-			new FatalErrorDialog("OpenOSRS was unable to verify the security of its connection to the internet while " +
-				action + ". You may have a misbehaving antivirus, internet service provider, a proxy, or an incomplete" +
-				" java installation.")
-				.open();
+			new FatalErrorDialog("RuneLite was unable to verify the security of its connection to the internet while " +
+					action + ". You may have a misbehaving antivirus, internet service provider, a proxy, or an incomplete" +
+					" java installation.")
+					.open();
 			return;
 		}
 
 		if (err instanceof ConnectException)
 		{
-			new FatalErrorDialog("OpenOSRS is unable to connect to a required server while " + action + ". " +
-				"Please check your internet connection")
-				.open();
+			new FatalErrorDialog("RuneLite is unable to connect to a required server while " + action + ". " +
+					"Please check your internet connection")
+					.open();
 			return;
 		}
 
 		if (err instanceof UnknownHostException)
 		{
-			new FatalErrorDialog("OpenOSRS is unable to resolve the address of a required server while " + action + ". " +
-				"Your DNS resolver may be misconfigured, pointing to an inaccurate resolver, or your internet connection may " +
-				"be down. ")
-				.addButton("Change your DNS resolver", () -> LinkBrowser.browse(RuneLiteProperties.getDNSChangeLink()))
-				.open();
+			new FatalErrorDialog("RuneLite is unable to resolve the address of a required server while " + action + ". " +
+					"Your DNS resolver may be misconfigured, pointing to an inaccurate resolver, or your internet connection may " +
+					"be down. ")
+					.addButton("Change your DNS resolver", () -> LinkBrowser.browse(RuneLiteProperties.getDNSChangeLink()))
+					.open();
 			return;
 		}
 
-		new FatalErrorDialog("OpenOSRS encountered a fatal error while " + action + ".").open();
+		new FatalErrorDialog("RuneLite encountered a fatal error while " + action + ".").open();
 	}
 }

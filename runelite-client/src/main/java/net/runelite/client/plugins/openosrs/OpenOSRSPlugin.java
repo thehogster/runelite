@@ -48,9 +48,9 @@ import net.runelite.client.util.ImageUtil;
 import org.slf4j.LoggerFactory;
 
 @PluginDescriptor(
-	loadWhenOutdated = true, // prevent users from disabling
-	hidden = true, // prevent users from disabling
-	name = "OpenOSRS"
+		loadWhenOutdated = true, // prevent users from disabling
+		hidden = true, // prevent users from disabling
+		name = "OpenOSRS"
 )
 @Singleton
 @Slf4j
@@ -101,12 +101,14 @@ public class OpenOSRSPlugin extends Plugin
 		final BufferedImage icon = ImageUtil.loadImageResource(getClass(), "externalmanager_icon.png");
 
 		navButton = NavigationButton.builder()
-			.tooltip("External Plugin Manager")
-			.icon(icon)
-			.priority(1)
-			.panel(panel)
-			.build();
-		clientToolbar.addNavigation(navButton);
+				.tooltip("External Plugin Manager")
+				.icon(icon)
+				.priority(1)
+				.panel(panel)
+				.build();
+		if (!config.hideOprsManager()) {
+			clientToolbar.addNavigation(navButton);
+		}
 
 		this.keybind = config.detachHotkey();
 		keyManager.registerKeyListener(hotkeyListener);
@@ -136,6 +138,15 @@ public class OpenOSRSPlugin extends Plugin
 			final Logger logger = (Logger) LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
 			logger.detachAppender("Sentry");
 		}
-	}
 
+		if (config.hideOprsManager() && navButton != null)
+		{
+			clientToolbar.removeNavigation(navButton);
+		}
+
+		if (!config.hideOprsManager())
+		{
+			clientToolbar.addNavigation(navButton);
+		}
+	}
 }

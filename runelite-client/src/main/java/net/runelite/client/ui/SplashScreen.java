@@ -69,9 +69,9 @@ public class SplashScreen extends JFrame implements ActionListener
 
 	private SplashScreen() throws IOException
 	{
-		BufferedImage logo = ImageUtil.loadImageResource(SplashScreen.class, "openosrs_transparent.png");
+		BufferedImage logo = ImageUtil.loadImageResource(SplashScreen.class, "runelite_transparent.png");
 
-		setTitle("OpenOSRS Launcher");
+		setTitle("SpoonLite Launcher");
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setUndecorated(true);
@@ -96,8 +96,10 @@ public class SplashScreen extends JFrame implements ActionListener
 		y += action.getHeight() + PAD;
 
 		pane.add(progress);
-		progress.setForeground(ColorScheme.BRAND_BLUE);
-		progress.setBackground(ColorScheme.BRAND_BLUE.darker().darker());
+		progress.setForeground(ColorScheme.BRAND_BLUE); //RuneLite colors
+		progress.setBackground(ColorScheme.BRAND_BLUE.darker().darker()); //RuneLite colors
+		//progress.setForeground(ColorScheme.BRAND_SPOON); //SpoonLite colors
+		//progress.setBackground(ColorScheme.BRAND_SPOON.darker().darker()); //SpoonLite colors
 		progress.setBorder(new EmptyBorder(0, 0, 0, 0));
 		progress.setBounds(0, y, WIDTH, 14);
 		progress.setFont(font);
@@ -131,7 +133,7 @@ public class SplashScreen extends JFrame implements ActionListener
 		timer.setRepeats(true);
 		timer.start();
 
-		//setVisible(true);
+		setVisible(true); //Delete comment to make it look like RuneLite
 	}
 
 	@Override
@@ -218,8 +220,8 @@ public class SplashScreen extends JFrame implements ActionListener
 	}
 
 	public static void stage(double startProgress, double endProgress,
-		@Nullable String actionText, String subActionText,
-		int done, int total, boolean mib)
+							 @Nullable String actionText, String subActionText,
+							 int done, int total, boolean mib)
 	{
 		String progress;
 		if (mib)

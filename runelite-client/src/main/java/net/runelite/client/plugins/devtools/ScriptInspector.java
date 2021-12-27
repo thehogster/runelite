@@ -141,7 +141,7 @@ public class ScriptInspector extends DevToolsFrame
 		this.client = client;
 		this.configManager = configManager;
 
-		setTitle("OpenOSRS Script Inspector");
+		setTitle("RuneLite Script Inspector");
 
 		setLayout(new BorderLayout());
 
@@ -339,9 +339,9 @@ public class ScriptInspector extends DevToolsFrame
 	public void close()
 	{
 		configManager.setConfiguration("devtools", "highlights",
-			Text.toCSV(Lists.transform(new ArrayList<>(highlights), String::valueOf)));
+				Text.toCSV(Lists.transform(new ArrayList<>(highlights), String::valueOf)));
 		configManager.setConfiguration("devtools", "blacklist",
-			Text.toCSV(Lists.transform(new ArrayList<>(blacklist), String::valueOf)));
+				Text.toCSV(Lists.transform(new ArrayList<>(blacklist), String::valueOf)));
 		currentNode = null;
 		eventBus.unregister(this);
 		super.close();
@@ -363,8 +363,8 @@ public class ScriptInspector extends DevToolsFrame
 				JLabel header = new JLabel("Tick " + tick);
 				header.setFont(FontManager.getRunescapeSmallFont());
 				header.setBorder(new CompoundBorder(
-					BorderFactory.createMatteBorder(0, 0, 1, 0, ColorScheme.LIGHT_GRAY_COLOR),
-					BorderFactory.createEmptyBorder(3, 6, 0, 0)
+						BorderFactory.createMatteBorder(0, 0, 1, 0, ColorScheme.LIGHT_GRAY_COLOR),
+						BorderFactory.createEmptyBorder(3, 6, 0, 0)
 				));
 				tracker.add(header);
 			}

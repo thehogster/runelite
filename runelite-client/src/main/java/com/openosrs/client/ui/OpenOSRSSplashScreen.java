@@ -48,7 +48,7 @@ public class OpenOSRSSplashScreen extends JFrame
 
 	private OpenOSRSSplashScreen()
 	{
-		this.setTitle("OpenOSRS");
+		this.setTitle("SpoonLite");
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		this.setSize(FRAME_SIZE);
 		this.setLayout(new BorderLayout());
@@ -66,7 +66,7 @@ public class OpenOSRSSplashScreen extends JFrame
 		pack();
 
 		this.setLocationRelativeTo(null);
-		this.setVisible(true);
+		//this.setVisible(true); //Comment out to make look like RuneLite
 	}
 
 	public static boolean showing()

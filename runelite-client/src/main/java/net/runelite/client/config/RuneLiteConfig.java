@@ -407,6 +407,16 @@ public interface RuneLiteConfig extends Config
 		return ComponentConstants.STANDARD_BACKGROUND_COLOR;
 	}
 
+	@Alpha
+	@ConfigItem(
+			keyName = "infoboxBackgroundColor",
+			name = "Infobox Color",
+			description = "Configures the background color of infoboxes",
+			position = 45,
+			section = overlaySettings
+	)
+	default Color infoboxBackgroundColor() { return ComponentConstants.STANDARD_BACKGROUND_COLOR; }
+
 	@ConfigItem(
 		keyName = "sidebarToggleKey",
 		name = "Sidebar Toggle Key",
@@ -452,4 +462,23 @@ public interface RuneLiteConfig extends Config
 	{
 		return true;
 	}
+
+	@ConfigItem(
+			keyName = "stupidSliders",
+			name = "Use sliders",
+			description = "Uses sliders instead of infoboxes",
+			position = 52
+	)
+	default boolean stupidSliders()
+	{
+		return false;
+	}
+
+	@ConfigItem(
+			keyName = "rlCheckbox",
+			name = "Use RuneLite Checkboxes",
+			description = "Uses the RuneLite checkboxes instead of the OPRS toggles",
+			position = 53
+	)
+	default boolean rlCheckbox() { return true; }
 }

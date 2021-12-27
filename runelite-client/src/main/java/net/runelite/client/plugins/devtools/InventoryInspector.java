@@ -86,7 +86,7 @@ class InventoryInspector extends DevToolsFrame
 		this.deltaPanel = new InventoryDeltaPanel(itemManager);
 
 		setLayout(new BorderLayout());
-		setTitle("OpenOSRS Inventory Inspector");
+		setTitle("RuneLite Inventory Inspector");
 		setIconImage(ClientUI.ICON);
 
 		tree.setBorder(new EmptyBorder(2, 2, 2, 2));
@@ -295,38 +295,38 @@ class InventoryInspector extends DevToolsFrame
 		}
 
 		final Map<Boolean, List<InventoryItem>> result = qtyMap.entrySet().stream()
-			.filter(e -> e.getValue() != 0)
-			.flatMap(e ->
-			{
-				final int id = e.getKey();
-				final int qty = e.getValue();
-				final ItemComposition c = itemManager.getItemComposition(e.getKey());
-
-				InventoryItem[] items = {
-					new InventoryItem(-1, new Item(id, qty), c.getName(), c.isStackable())
-				};
-				if (!c.isStackable() && (qty > 1 || qty < -1))
+				.filter(e -> e.getValue() != 0)
+				.flatMap(e ->
 				{
-					items = new InventoryItem[Math.abs(qty)];
-					for (int i = 0; i < Math.abs(qty); i++)
-					{
-						final Item item = new Item(id, Integer.signum(qty));
-						items[i] = new InventoryItem(-1, item, c.getName(), c.isStackable());
-					}
-				}
+					final int id = e.getKey();
+					final int qty = e.getValue();
+					final ItemComposition c = itemManager.getItemComposition(e.getKey());
 
-				return Arrays.stream(items);
-			})
-			.collect(Collectors.partitioningBy(item -> item.getItem().getQuantity() > 0));
+					InventoryItem[] items = {
+							new InventoryItem(-1, new Item(id, qty), c.getName(), c.isStackable())
+					};
+					if (!c.isStackable() && (qty > 1 || qty < -1))
+					{
+						items = new InventoryItem[Math.abs(qty)];
+						for (int i = 0; i < Math.abs(qty); i++)
+						{
+							final Item item = new Item(id, Integer.signum(qty));
+							items[i] = new InventoryItem(-1, item, c.getName(), c.isStackable());
+						}
+					}
+
+					return Arrays.stream(items);
+				})
+				.collect(Collectors.partitioningBy(item -> item.getItem().getQuantity() > 0));
 
 		final InventoryItem[] added = result.get(true).toArray(new InventoryItem[0]);
 		final InventoryItem[] removed = result.get(false).stream()
-			// Make quantities positive now that its been sorted.
-			.peek(i -> i.setItem(new Item(i.getItem().getId(), -i.getItem().getQuantity())))
-			.toArray(InventoryItem[]::new);
+				// Make quantities positive now that its been sorted.
+				.peek(i -> i.setItem(new Item(i.getItem().getId(), -i.getItem().getQuantity())))
+				.toArray(InventoryItem[]::new);
 
 		return new InventoryItem[][]{
-			added, removed
+				added, removed
 		};
 	}
 

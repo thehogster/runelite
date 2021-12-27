@@ -54,7 +54,8 @@ public class InfoPanel extends JPanel
 {
 	private static final Color DARK_GREY = new Color(10, 10, 10, 255);
 
-	private static final BufferedImage TRANSPARENT_LOGO = ImageUtil.getResourceStreamFromClass(InfoPanel.class, "/openosrs.png");
+	//private static final BufferedImage TRANSPARENT_LOGO = ImageUtil.loadImageResource(InfoPanel.class, "/runelite_transparent.png");
+	private static final BufferedImage TRANSPARENT_LOGO = ImageUtil.loadImageResource(InfoPanel.class, "/fuckmygrill.png");
 	static final Dimension PANEL_SIZE = new Dimension(200, OpenOSRSSplashScreen.FRAME_SIZE.height);
 	private static final Dimension VERSION_SIZE = new Dimension(PANEL_SIZE.width, 25);
 	private static final File RUNELITE_DIR = new File(System.getProperty("user.home"), ".openosrs");
@@ -77,7 +78,8 @@ public class InfoPanel extends JPanel
 		final ImageIcon transparentLogo = new ImageIcon();
 		if (TRANSPARENT_LOGO != null)
 		{
-			transparentLogo.setImage(TRANSPARENT_LOGO.getScaledInstance(128, 128, Image.SCALE_SMOOTH));
+			//transparentLogo.setImage(TRANSPARENT_LOGO.getScaledInstance(128, 128, Image.SCALE_SMOOTH)); //RuneLite logo
+			transparentLogo.setImage(TRANSPARENT_LOGO.getScaledInstance(224, 224, Image.SCALE_SMOOTH)); //Grill
 		}
 		final JLabel logo = new JLabel(transparentLogo);
 
@@ -89,14 +91,14 @@ public class InfoPanel extends JPanel
 		c.weighty = 0;
 
 		// OpenOSRS version
-		this.add(createPanelTextButton("OpenOSRS Version: " + OpenOSRS.SYSTEM_VERSION), c);
+		this.add(createPanelTextButton("SpoonLite Version: " + OpenOSRS.SYSTEM_VERSION), c);
 		c.gridy++;
 
 		final JLabel logsFolder = createPanelButton("Open logs folder", null, () -> LinkBrowser.openLocalFile(LOGS_DIR));
 		this.add(logsFolder, c);
 		c.gridy++;
 
-		final JLabel discord = createPanelButton("Get help on Discord", "Instant invite link to join the openosrs discord", () -> LinkBrowser.browse(RuneLiteProperties.getDiscordInvite()));
+		final JLabel discord = createPanelButton("Get help on Discord", "Instant invite link to join the SpoonLite discord", () -> LinkBrowser.browse(RuneLiteProperties.getDiscordInvite()));
 		this.add(discord, c);
 		c.gridy++;
 
@@ -114,7 +116,8 @@ public class InfoPanel extends JPanel
 		final JLabel textButton = new JLabel(title);
 		textButton.setFont(FontManager.getRunescapeSmallFont());
 		textButton.setHorizontalAlignment(JLabel.CENTER);
-		textButton.setForeground(ColorScheme.BRAND_BLUE);
+		//textButton.setForeground(ColorScheme.BRAND_BLUE);
+		textButton.setForeground(ColorScheme.BRAND_SPOON);
 		textButton.setBackground(null);
 		textButton.setPreferredSize(VERSION_SIZE);
 		textButton.setMinimumSize(VERSION_SIZE);
@@ -132,8 +135,8 @@ public class InfoPanel extends JPanel
 		btn.setForeground(Color.WHITE);
 		btn.setFont(FontManager.getRunescapeFont());
 		btn.setBorder(new CompoundBorder(
-			new MatteBorder(1, 0, 0, 0, DARK_GREY),
-			new EmptyBorder(3, 0, 3, 0))
+				new MatteBorder(1, 0, 0, 0, DARK_GREY),
+				new EmptyBorder(3, 0, 3, 0))
 		);
 		btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btn.addMouseListener(new MouseAdapter()
