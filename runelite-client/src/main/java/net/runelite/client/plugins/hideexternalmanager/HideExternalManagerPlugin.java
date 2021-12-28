@@ -72,67 +72,28 @@ public class HideExternalManagerPlugin extends Plugin
                 } else {
                     readdTabs(false);
                 }
-            } else if (event.getKey().equals("hideSpoon")) {
+            } /*else if (event.getKey().equals("hideSpoon")) {
                 if (config.hideSpoon()) {
                     removeTabs();
                 } else {
                     readdTabs(false);
                 }
-            }
+            }*/
         }
     }
 
     private void removeTabs()
     {
-        /*Field test = FieldUtils.getDeclaredField(clientToolbar.getClass(),"buttons",true);
-        try
-        {
-            Set<NavigationButton> buttons = (Set<NavigationButton>) FieldUtils.readDeclaredField(clientToolbar,"buttons",true);
-            System.out.println("Buttons size: " + buttons.size());
-            for (NavigationButton button : buttons)
-            {
-                if (button.getTooltip().equals("External Plugin Manager") && config.hideOPRS())
-                {
-                    removedButtons.add(button);
-                }
-
-                if (button.getTooltip().equals("Repo External Manager") && config.hideSpoon())
-                {
-                    removedButtons.add(button);
-                }
-            }
-
-            for (NavigationButton button : removedButtons)
-            {
-                clientToolbar.removeNavigation(button);
-            }
-        }
-        catch (IllegalAccessException e)
-        {
-            e.printStackTrace();
-        }*/
         if (config.hideOPRS()) {
             configManager.setConfiguration("openosrs", "hideOprsManager", true);
         }
-        if (config.hideSpoon()) {
+        /*if (config.hideSpoon()) {
             configManager.setConfiguration("openosrs", "hideSpoonManager", true);
-        }
+        }*/
     }
 
     private void readdTabs(boolean onShutdown)
     {
-        /*for (int i=removedButtons.size()-1; i>=0; i--)
-        {
-            if(onShutdown){
-                clientToolbar.addNavigation(removedButtons.get(i));
-                removedButtons.remove(removedButtons.get(i));
-            }else {
-                if ((removedButtons.get(i).getTooltip().equals("External Plugin Manager") && !config.hideOPRS()) || (removedButtons.get(i).getTooltip().equals("Repo External Manager") && !config.hideSpoon())) {
-                    clientToolbar.addNavigation(removedButtons.get(i));
-                    removedButtons.remove(removedButtons.get(i));
-                }
-            }
-        }*/
         if (onShutdown) {
             configManager.setConfiguration("openosrs", "hideOprsManager", false);
             configManager.setConfiguration("openosrs", "hideSpoonManager", false);
@@ -140,9 +101,9 @@ public class HideExternalManagerPlugin extends Plugin
             if (!config.hideOPRS()) {
                 configManager.setConfiguration("openosrs", "hideOprsManager", false);
             }
-            if (!config.hideSpoon()) {
+            /*if (!config.hideSpoon()) {
                 configManager.setConfiguration("openosrs", "hideSpoonManager", false);
-            }
+            }*/
         }
     }
 }

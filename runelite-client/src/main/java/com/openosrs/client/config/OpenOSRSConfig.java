@@ -152,12 +152,18 @@ public interface OpenOSRSConfig extends Config
 			name = "",
 			description = ""
 	)
-	default boolean hideOprsManager() { return false; }
+	default boolean hideOprsManager()
+	{
+		return false;
+	}
 
-	@ConfigItem(
+	/*@ConfigItem(
 			keyName = "hideSpoonManager",
 			name = "",
 			description = ""
 	)
-	default boolean hideSpoonManager() { return false; }
+	default boolean hideSpoonManager()
+	{
+		return false;
+	}*/
 }
