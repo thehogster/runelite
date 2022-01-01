@@ -32,6 +32,8 @@ dependencies {
     compileOnly(project(":injection-annotations"))
     compileOnly(project(":runescape-api"))
     compileOnly(project(":cache"))
+    api(group = "org.jogamp.gluegen", name = "gluegen-rt-main", version = "2.3.2")
+    api(group = "org.jogamp.jogl", name = "jogl-all-main", version = "2.3.2")
 }
 
 tasks {

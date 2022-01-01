@@ -88,6 +88,7 @@ dependencies {
     implementation(group = "net.runelite.gluegen", name = "gluegen-rt", version = "2.4.0-rc-20200429")
     implementation(group = "net.runelite.jogl", name = "jogl-all", version = "2.4.0-rc-20200429")
     implementation(group = "net.runelite.jocl", name = "jocl", version = "1.0")
+    implementation(group = "com.microsoft.alm", name = "auth-secure-storage", version = "0.6.4")
 
     runtimeOnly(project(":runescape-api"))
     runtimeOnly(group = "net.runelite.pushingpixels", name = "trident", version = "1.5.00")

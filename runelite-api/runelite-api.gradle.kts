@@ -38,4 +38,7 @@ dependencies {
     implementation(group = "org.slf4j", name = "slf4j-api", version = "1.7.32")
 
     testImplementation(group = "junit", name = "junit", version = "4.12")
+
+    api(group = "org.jogamp.gluegen", name = "gluegen-rt-main", version = "2.3.2")
+    api(group = "org.jogamp.jogl", name = "jogl-all-main", version = "2.3.2")
 }

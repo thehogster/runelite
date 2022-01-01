@@ -1,7 +1,8 @@
 package com.openosrs.client.util;
 
-import java.util.HashMap;
 import net.runelite.api.ItemID;
+
+import java.util.HashMap;
 
 public class WeaponMap
 {
@@ -540,6 +541,7 @@ public class WeaponMap
 		StyleMap.put(ItemID.ZAMORAK_GODSWORD, WeaponStyle.MELEE);
 		StyleMap.put(ItemID.ZAMORAK_GODSWORD_OR, WeaponStyle.MELEE);
 		StyleMap.put(ItemID.ZOMBIE_HEAD, WeaponStyle.MELEE);
+		StyleMap.put(-1, WeaponStyle.MELEE); //hands and feet
 
 		//Ranged
 		StyleMap.put(ItemID._3RD_AGE_BOW, WeaponStyle.RANGE);
@@ -559,7 +561,7 @@ public class WeaponMap
 		StyleMap.put(ItemID.AMETHYST_DARTP_25857, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.ARMADYL_CROSSBOW, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.ARMADYL_CROSSBOW_23611, WeaponStyle.RANGE);
-		StyleMap.put(ItemID.BLACK_CHINCHOMPA, WeaponStyle.RANGE);
+		StyleMap.put(ItemID.BLACK_CHINCHOMPA, WeaponStyle.CHINS);
 		StyleMap.put(ItemID.BLACK_DART, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.BLACK_DARTP, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.BLACK_DARTP_5631, WeaponStyle.RANGE);
@@ -590,8 +592,8 @@ public class WeaponMap
 		StyleMap.put(ItemID.BOW_OF_FAERDHINEN_C_25892, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.BOW_OF_FAERDHINEN_C_25894, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.BOW_OF_FAERDHINEN_C_25896, WeaponStyle.RANGE);
-		StyleMap.put(ItemID.CHINCHOMPA, WeaponStyle.RANGE);
-		StyleMap.put(ItemID.CHINCHOMPA_10033, WeaponStyle.RANGE);
+		StyleMap.put(ItemID.CHINCHOMPA, WeaponStyle.CHINS);
+		StyleMap.put(ItemID.CHINCHOMPA_10033, WeaponStyle.CHINS);
 		StyleMap.put(ItemID.COMP_OGRE_BOW, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.CORRUPTED_BOW_ATTUNED, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.CORRUPTED_BOW_BASIC, WeaponStyle.RANGE);
@@ -698,8 +700,8 @@ public class WeaponMap
 		StyleMap.put(ItemID.OAK_SHORTBOW, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.OGRE_BOW, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.PHOENIX_CROSSBOW, WeaponStyle.RANGE);
-		StyleMap.put(ItemID.RED_CHINCHOMPA, WeaponStyle.RANGE);
-		StyleMap.put(ItemID.RED_CHINCHOMPA_10034, WeaponStyle.RANGE);
+		StyleMap.put(ItemID.RED_CHINCHOMPA, WeaponStyle.CHINS);
+		StyleMap.put(ItemID.RED_CHINCHOMPA_10034, WeaponStyle.CHINS);
 		StyleMap.put(ItemID.RUNE_CROSSBOW, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.RUNE_CROSSBOW_23601, WeaponStyle.RANGE);
 		StyleMap.put(ItemID.RUNE_DART, WeaponStyle.RANGE);
