@@ -48,10 +48,11 @@ open class BootstrapTask @Inject constructor(@Input val type: String) : DefaultT
                     it.file.name.contains("http-api") ||
                     it.file.name.contains("runescape-api") ||
                     it.file.name.contains("runelite-api") ||
-                    it.file.name.contains("runelite-jshell")) {
+                    it.file.name.contains("runelite-jshell") ||
+                    it.file.name.contains("injection-annotations")) {
                 path = "https://github.com/9InchHog/hosting/raw/master/${type}/${it.file.name}"
-            } else if (it.file.name.contains("injection-annotations")) {
-                path = "https://github.com/9InchHog/hosting/raw/master/" + group.replace(".", "/") + "/${name}/$version/${it.file.name}"
+            } else if (it.file.name.contains("archive-patch-applier") || it.file.name.contains("archive-patch-shared")) {
+                path = "https://jcenter.bintray.com/" + group.replace(".", "/") + "/${name}/$version/${name}-$version.jar"
             } else if (!group.contains("runelite")) {
                 path = "https://repo.maven.apache.org/maven2/" + group.replace(".", "/") + "/${name}/$version/${name}-$version"
                 if (it.classifier != null && it.classifier != "no_aop") {
