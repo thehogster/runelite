@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
+ * Copyright (c) 2022, Adam <Adam@sigterm.info>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,15 +22,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package net.runelite.client.ui;
 
-object ProjectVersions {
-    const val launcherVersion = "2.2.0"
-    const val rlVersion = "1.8.8"
+import java.awt.Desktop;
+import java.awt.desktop.QuitStrategy;
 
-    const val openosrsVersion = "4.17.2"
-
-    const val rsversion = 202
-    const val cacheversion = 165
-
-    const val lombokVersion = "1.18.20"
+class MacOSQuitStrategy
+{
+	public static void setup()
+	{
+		Desktop.getDesktop()
+				.setQuitStrategy(QuitStrategy.CLOSE_ALL_WINDOWS);
+	}
 }
