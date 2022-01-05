@@ -2,7 +2,7 @@ package net.runelite.client.plugins.spoontob.rooms.Maiden;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableSet;
-import kotlin.Pair;
+import org.apache.commons.lang3.tuple.Pair;
 import lombok.Getter;
 import net.runelite.api.*;
 import net.runelite.api.coords.WorldPoint;

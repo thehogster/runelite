@@ -1,8 +1,6 @@
 package net.runelite.client.plugins.spoontob.rooms.Nylocas;
 
 import com.google.common.collect.ImmutableSet;
-import com.openosrs.client.util.WeaponMap;
-import com.openosrs.client.util.WeaponStyle;
 import lombok.Getter;
 import lombok.Setter;
 import net.runelite.api.Point;
@@ -21,6 +19,8 @@ import net.runelite.client.plugins.spoontob.SpoonTobConfig;
 import net.runelite.client.plugins.spoontob.SpoonTobPlugin;
 import net.runelite.client.plugins.spoontob.util.TheatreInputListener;
 import net.runelite.client.plugins.spoontob.util.TheatreRegions;
+import net.runelite.client.plugins.spoontob.util.WeaponMap;
+import net.runelite.client.plugins.spoontob.util.WeaponStyle;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.components.InfoBoxComponent;
 import net.runelite.client.util.ColorUtil;

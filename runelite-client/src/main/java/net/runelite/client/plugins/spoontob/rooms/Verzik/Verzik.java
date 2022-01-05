@@ -15,6 +15,8 @@ import net.runelite.client.plugins.spoontob.Room;
 import net.runelite.client.plugins.spoontob.SpoonTobConfig;
 import net.runelite.client.plugins.spoontob.SpoonTobPlugin;
 import net.runelite.client.plugins.spoontob.util.TheatreRegions;
+import net.runelite.client.plugins.spoontob.util.PoisonStyle;
+import net.runelite.client.plugins.spoontob.util.PoisonWeaponMap;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.util.ImageUtil;
 import org.apache.commons.lang3.ObjectUtils;
@@ -53,7 +55,7 @@ public class Verzik extends Room {
     @Inject
     private VerzikRedsOverlay redsOverlay;
 
-    private PoisonStyle poisonStyle;
+    private net.runelite.client.plugins.spoontob.util.PoisonStyle poisonStyle;
     private boolean skipTickCheck = false;
 
     private ClientThread clientThread;
