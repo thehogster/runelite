@@ -34,9 +34,9 @@ import org.slf4j.LoggerFactory;
 
 @Extension
 @PluginDescriptor(
-        name = "[S] Nex",
+        name = "[Y] Nex",
         description = "Shows additional figures in the ancient chamber.",
-        tags = {"nex", "ancient", "god", "wars"}
+        tags = {"nex", "ancient", "god", "wars", "happy birthday rusher"}
 )
 public class NexPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(NexPlugin.class);

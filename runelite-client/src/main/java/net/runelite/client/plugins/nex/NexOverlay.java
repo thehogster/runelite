@@ -36,7 +36,7 @@ public class NexOverlay extends Overlay {
         this.config = config;
         setPosition(OverlayPosition.DYNAMIC);
         setPriority(OverlayPriority.HIGH);
-        setLayer(OverlayLayer.ALWAYS_ON_TOP);
+        setLayer(OverlayLayer.ABOVE_SCENE);
     }
 
     public Dimension render(Graphics2D graphics) {
