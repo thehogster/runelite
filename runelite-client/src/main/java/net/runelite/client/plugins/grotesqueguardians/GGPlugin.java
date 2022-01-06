@@ -9,12 +9,14 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.util.*;
 
+@Extension
 @PluginDescriptor(
         name = "[S] Grotesque Guardians",
         description = "Show various helpful utilities during the Grotesque Guardians fight",

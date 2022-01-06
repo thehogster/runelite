@@ -16,12 +16,14 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.alchemicalhydra.Hydra.AttackStyle;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.*;
 import java.util.Map.Entry;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Alchemical Hydra",
 	description = "Hydra things",

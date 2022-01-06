@@ -59,6 +59,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.QuantityFormatter;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
@@ -76,6 +77,7 @@ import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
 import static net.runelite.client.plugins.spoongrounditems.config.MenuHighlightMode.*;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Ground Items",
 	description = "Highlight ground items and/or show price information",

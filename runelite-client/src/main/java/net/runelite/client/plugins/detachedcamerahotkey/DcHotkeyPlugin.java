@@ -14,7 +14,9 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.HotkeyListener;
+import org.pf4j.Extension;
 
+@Extension
 @PluginDescriptor(
         name = "[S] Detached Camera Hotkey",
         description = "Hotkey to enable/disable the detached camera. Not made by me",

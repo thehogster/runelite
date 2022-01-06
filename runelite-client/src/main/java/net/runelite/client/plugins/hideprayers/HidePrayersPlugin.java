@@ -15,6 +15,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.plugins.hideprayers.util.PrayerTabStates;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -22,6 +23,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Hide Prayers",
 	enabledByDefault = false,

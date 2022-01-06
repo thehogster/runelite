@@ -14,12 +14,19 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
 import java.util.ArrayList;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Jad Helper", description = "Help", tags = {"six jad", "spoon", "jad", "fight caves", "inferno"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Jad Helper",
+        description = "Help",
+        tags = {"six jad", "spoon", "jad", "fight caves", "inferno"},
+        enabledByDefault = false
+)
 public class SpoonJadHelperPlugin extends Plugin {
     @Inject
     private Client client;

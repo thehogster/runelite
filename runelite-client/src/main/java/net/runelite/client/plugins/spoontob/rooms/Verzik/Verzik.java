@@ -55,7 +55,7 @@ public class Verzik extends Room {
     @Inject
     private VerzikRedsOverlay redsOverlay;
 
-    private net.runelite.client.plugins.spoontob.util.PoisonStyle poisonStyle;
+    private PoisonStyle poisonStyle;
     private boolean skipTickCheck = false;
 
     private ClientThread clientThread;
@@ -164,7 +164,6 @@ public class Verzik extends Room {
     public int lightningAttacksDelay;
     @Getter
     private Map<Projectile, Integer> verzikLightningProjectiles = new HashMap<>();
-
 
     public ArrayList<ArrayList<WorldPoint>> yellowGroups;
     private ArrayList<WorldPoint> yellows;

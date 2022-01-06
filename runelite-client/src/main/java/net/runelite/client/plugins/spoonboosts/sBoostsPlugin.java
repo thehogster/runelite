@@ -44,10 +44,12 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.ImageUtil;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.*;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Boosts Information",
 	description = "Show combat and/or skill boost information",

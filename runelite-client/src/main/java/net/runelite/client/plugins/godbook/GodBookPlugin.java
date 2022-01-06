@@ -12,6 +12,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@Extension
 @PluginDescriptor(name = "Godbook", description = "Displays how long since someone preached.", tags = {"preach", "godbook"})
 public class GodBookPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(GodBookPlugin.class);

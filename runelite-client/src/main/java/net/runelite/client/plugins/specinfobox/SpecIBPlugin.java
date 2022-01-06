@@ -14,12 +14,19 @@ import net.runelite.client.game.SpriteManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.image.BufferedImage;
 import java.util.Objects;
 
-@PluginDescriptor(name = "[S] Spec InfoBox", description = "Displays an InfoBox when you can spec based on a threshold", tags = {"special", "attack", "info", "box", "big mfkn tyler"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "[S] Spec InfoBox",
+        description = "Displays an InfoBox when you can spec based on a threshold",
+        tags = {"special", "attack", "info", "box", "big mfkn tyler"},
+        enabledByDefault = false
+)
 public class SpecIBPlugin extends Plugin {
     @Inject
     private Client client;

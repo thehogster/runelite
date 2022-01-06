@@ -15,10 +15,12 @@ import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.event.KeyEvent;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Anti Drag",
         description = "Prevent dragging an item for a specified delay",

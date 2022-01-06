@@ -26,12 +26,14 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxPriority;
 import net.runelite.client.ui.overlay.infobox.LoopTimer;
 import net.runelite.client.util.QuantityFormatter;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
 import java.util.Set;
 
+@Extension
 @PluginDescriptor(
 		name = "<html><font color=#25c550>[S] Barrows Brothers",
 		description = "Show helpful information for the Barrows minigame",

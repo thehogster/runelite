@@ -11,12 +11,15 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-@PluginDescriptor(name = "[b] Vanguards",
+@Extension
+@PluginDescriptor(
+        name = "[b] Vanguards",
         enabledByDefault = false
 )
 public class VanguardsPlugin extends Plugin

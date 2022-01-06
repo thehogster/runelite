@@ -54,6 +54,7 @@ import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -71,6 +72,7 @@ import java.util.regex.Pattern;
 import static java.lang.Integer.max;
 import static net.runelite.api.Skill.SLAYER;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Slayer",
         description = "Show additional slayer task related information",

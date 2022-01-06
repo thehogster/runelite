@@ -12,10 +12,12 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.Objects;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Gwd Essence",
         description = "Removes the new essence counter and replaces it with a better one",

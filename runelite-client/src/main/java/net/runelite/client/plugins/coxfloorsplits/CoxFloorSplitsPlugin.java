@@ -18,12 +18,14 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.StringUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 @Slf4j
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Cox Floor Splits"
 )

@@ -15,10 +15,12 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.Objects;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Phoenix Necklace",
         description = "Shows an infobox when you are not wearing a phoenix necklace",

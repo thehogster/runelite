@@ -26,6 +26,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
@@ -34,6 +35,7 @@ import java.util.*;
 
 import static net.runelite.api.Constants.CHUNK_SIZE;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Ground Markers",
 	description = "Enable marking of tiles using the Shift key",

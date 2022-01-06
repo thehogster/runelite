@@ -40,9 +40,11 @@ import net.runelite.client.menus.MenuManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
+@Extension
 @PluginDescriptor(
 		name = "[b] Blackjack",
 		enabledByDefault = false,

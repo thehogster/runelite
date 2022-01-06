@@ -40,6 +40,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.annotation.Nullable;
 import javax.inject.Inject;
@@ -48,6 +49,7 @@ import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
 
+@Extension
 @PluginDescriptor(
 		name = "<html><font color=#25c550>[S] Object Markers",
 		description = "Enable marking of objects using the Shift key",

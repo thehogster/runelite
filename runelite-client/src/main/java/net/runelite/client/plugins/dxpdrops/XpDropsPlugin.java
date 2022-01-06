@@ -16,12 +16,14 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.FontManager;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
+@Extension
 @PluginDescriptor(name = "[D] XP Drops", description = "De0's XP Drops")
 public class XpDropsPlugin extends Plugin {
     @Inject

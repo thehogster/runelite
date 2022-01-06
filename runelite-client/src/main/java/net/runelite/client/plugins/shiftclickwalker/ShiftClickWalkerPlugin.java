@@ -12,6 +12,7 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.input.KeyManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import static net.runelite.api.MenuAction.MENU_ACTION_DEPRIORITIZE_OFFSET;
@@ -19,6 +20,7 @@ import static net.runelite.api.MenuAction.MENU_ACTION_DEPRIORITIZE_OFFSET;
 import javax.inject.Inject;
 import java.awt.*;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Hotkey Walk Under",
         description = "Use the hotkey to toggle the Walk Here menu option. While pressed you will Walk rather than interact with objects.",

@@ -22,11 +22,13 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 
 import static net.runelite.api.ItemID.FIRE_CAPE;
 import static net.runelite.api.ItemID.INFERNAL_CAPE;
 
+@Extension
 @PluginDescriptor(
         name = "[b] Tzhaar Timers",
         description = "Display elapsed time in the Fight Caves and Inferno",

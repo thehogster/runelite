@@ -14,11 +14,18 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Tempoross", description = "All-in-one plugin for the Tempoross.", tags = {"Tempoross"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Tempoross",
+        description = "All-in-one plugin for the Tempoross.",
+        tags = {"Tempoross"},
+        enabledByDefault = false
+)
 public class SpoonTemporossPlugin extends Plugin {
     @Inject
     private Client client;

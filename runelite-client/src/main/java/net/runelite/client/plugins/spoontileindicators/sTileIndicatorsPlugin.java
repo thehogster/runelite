@@ -29,9 +29,11 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Tile Indicators",
 	description = "Highlight the tile you are currently moving to",

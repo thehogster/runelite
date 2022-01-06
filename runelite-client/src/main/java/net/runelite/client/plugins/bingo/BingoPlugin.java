@@ -6,10 +6,17 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Bingo", description = "Steroids made this- not me. Bingo code overlay.", tags = {"bingo"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Bingo",
+        description = "Steroids made this- not me. Bingo code overlay.",
+        tags = {"bingo"},
+        enabledByDefault = false
+)
 public class BingoPlugin extends Plugin {
     @Inject
     private BingoOverlay overlay;

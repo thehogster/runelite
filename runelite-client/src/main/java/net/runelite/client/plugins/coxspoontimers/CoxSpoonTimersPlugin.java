@@ -13,6 +13,7 @@ import net.runelite.client.plugins.coxspoontimers.utils.CoxUtil;
 import net.runelite.client.plugins.coxspoontimers.utils.MiscUtil;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.io.File;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 
 import static net.runelite.client.plugins.coxspoontimers.utils.CoxUtil.*;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] CoX Timers",
         description = "Time tracking for CoX rooms"

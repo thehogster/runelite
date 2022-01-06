@@ -20,6 +20,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.sound.sampled.*;
@@ -28,6 +29,7 @@ import java.io.BufferedInputStream;
 import java.util.List;
 import java.util.*;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Nightmare",
         description = "Nightmare Plugin",

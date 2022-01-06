@@ -27,12 +27,14 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.sound.sampled.Clip;
 import java.util.*;
 import java.util.function.Predicate;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Cox Additions",
         description = "Additional plugins for the Chambers of Xeric",

@@ -21,6 +21,7 @@ import net.runelite.client.plugins.spoonrunecraft.utils.Swapper;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Stream;
 
+@Extension
 @PluginDescriptor(
 		name = "<html><font color=#25c550>[S] Runecraft",
 		description = "Show minimap icons and clickboxes for abyssal rifts",

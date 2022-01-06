@@ -15,6 +15,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.StringUtils;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,12 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-@PluginDescriptor(name = "[b] Outgoing Chat filter", description = "Filters words for your message before it is send to the server", enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "[b] Outgoing Chat filter",
+        description = "Filters words for your message before it is send to the server",
+        enabledByDefault = false
+)
 @Singleton
 public class OutgoingChatFilterPlugin extends Plugin implements KeyListener {
   private static final Logger log = LoggerFactory.getLogger(OutgoingChatFilterPlugin.class);

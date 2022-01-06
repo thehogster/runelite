@@ -22,6 +22,7 @@ import net.runelite.client.plugins.spoonvm.utils.Constants;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.time.Duration;
@@ -31,7 +32,7 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Set;
 
-
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Volcanic Mine",
         description = "Useful plugins for Volcanic Mine.",

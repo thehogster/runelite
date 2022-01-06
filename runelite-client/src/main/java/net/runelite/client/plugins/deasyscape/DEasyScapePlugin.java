@@ -8,12 +8,17 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
-@PluginDescriptor(name = "[D] EasyScape", enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "[D] EasyScape",
+        enabledByDefault = false
+)
 public class DEasyScapePlugin extends Plugin {
     @Inject
     private Client client;

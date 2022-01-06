@@ -17,6 +17,7 @@ import net.runelite.client.plugins.spoontob.SpoonTobConfig;
 import net.runelite.client.plugins.spoontob.SpoonTobPlugin;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,6 +25,7 @@ import javax.inject.Inject;
 import java.awt.*;
 import java.util.ArrayList;
 
+@Extension
 @PluginDescriptor(
         name = "[Bo] Nylo",
         description = "Nylo extras - coded by Boak",

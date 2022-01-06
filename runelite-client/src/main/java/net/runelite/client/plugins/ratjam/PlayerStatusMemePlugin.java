@@ -7,9 +7,11 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
+@Extension
 @PluginDescriptor(
 	name = "Rat Jam",
 	description = "Ask Boris to explain why",

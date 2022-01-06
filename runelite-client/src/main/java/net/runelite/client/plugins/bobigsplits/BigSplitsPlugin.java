@@ -16,6 +16,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.HashMap;
@@ -27,6 +28,7 @@ import java.util.Set;
 //help from Big Mfkn Tyler, Caps and BL dev community
 
 @Slf4j
+@Extension
 @PluginDescriptor(
 	name = "[Bo] Big Splits",
 	description = "Highlights tile where a big nylo died and smalls are likely to spawn",

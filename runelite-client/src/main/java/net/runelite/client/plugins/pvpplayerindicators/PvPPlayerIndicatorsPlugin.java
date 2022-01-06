@@ -41,6 +41,7 @@ import net.runelite.client.plugins.pvpplayerindicators.utils.PvpUtil;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
@@ -48,6 +49,7 @@ import java.awt.*;
 import static net.runelite.api.FriendsChatRank.UNRANKED;
 import static net.runelite.api.MenuAction.*;
 
+@Extension
 @PluginDescriptor(
 		name = "<html><font color=#25c550>[S] Player Indicators",
 		description = "Highlight players on-screen and/or on the minimap",

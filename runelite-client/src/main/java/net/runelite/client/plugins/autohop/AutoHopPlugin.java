@@ -25,6 +25,7 @@ import net.runelite.client.util.WorldUtil;
 import net.runelite.http.api.worlds.World;
 import net.runelite.http.api.worlds.WorldResult;
 import net.runelite.http.api.worlds.WorldType;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.event.KeyEvent;
@@ -33,6 +34,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.Executors;
 
+@Extension
 @PluginDescriptor(
         name = "Auto Hopper",
         description = "Automatically hops away from people. Made by Owain",

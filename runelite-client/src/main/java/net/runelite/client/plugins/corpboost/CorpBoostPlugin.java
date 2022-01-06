@@ -19,6 +19,7 @@ import net.runelite.client.plugins.corpboost.spots.*;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
@@ -27,6 +28,7 @@ import java.util.Objects;
 
 import static net.runelite.api.ObjectID.CANNON_BASE;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Corp Additions",
         description = "Extra plugins for corp",

@@ -8,10 +8,17 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Spec Bar", description = "Shows the spec bar on weapons that do not have one", tags = {"special", "spec-bar", "special attack"}, enabledByDefault = true)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Spec Bar",
+        description = "Shows the spec bar on weapons that do not have one",
+        tags = {"special", "spec-bar", "special attack"},
+        enabledByDefault = true
+)
 public class SpecBarPlugin extends Plugin {
     @Inject
     private Client client;

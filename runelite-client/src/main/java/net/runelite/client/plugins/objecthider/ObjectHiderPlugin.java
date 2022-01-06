@@ -20,6 +20,7 @@ import net.runelite.client.plugins.PluginManager;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.HotkeyListener;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.swing.*;
@@ -29,6 +30,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
+@Extension
 @PluginDescriptor(
         name = "Ground Object Hider",
         description = "Hides Ground Objects. A selector is used to choose objects to hide.",

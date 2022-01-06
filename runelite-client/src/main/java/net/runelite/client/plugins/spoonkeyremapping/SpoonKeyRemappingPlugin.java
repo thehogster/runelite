@@ -17,11 +17,13 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.JagexColors;
 import net.runelite.client.util.ColorUtil;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
 import java.util.ArrayList;
 
+@Extension
 @PluginDescriptor(
 	name = "<html><font color=#25c550>[S] Key Remapping",
 	description = "Allows use of WASD keys for camera movement with 'Press Enter to Chat', and remapping number keys to F-keys",

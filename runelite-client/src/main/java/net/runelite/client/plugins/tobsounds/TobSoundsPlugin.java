@@ -13,6 +13,7 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,7 +21,12 @@ import javax.inject.Inject;
 import javax.sound.sampled.*;
 import java.io.BufferedInputStream;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] ToB Sounds", tags = {"bloat", "tob", "windows"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] ToB Sounds",
+        tags = {"bloat", "tob", "windows"},
+        enabledByDefault = false
+)
 public class TobSoundsPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(TobSoundsPlugin.class);
 

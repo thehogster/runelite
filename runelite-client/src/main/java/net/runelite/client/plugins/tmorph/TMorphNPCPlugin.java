@@ -19,7 +19,7 @@ import javax.inject.Inject;
 @Extension
 @Slf4j
 @PluginDescriptor(
-        name = "[B] Tmorph NPC",
+        name = "[S] Tmorph NPC",
         description = "Change your character model to an NPC model",
         enabledByDefault = false
 )

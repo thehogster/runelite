@@ -14,14 +14,20 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Soul Wars", description = "Removes cast on teammates in Soul Wars", tags = {"soul wars", "soul", "wars", "avatar", "cast"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Soul Wars",
+        description = "Removes cast on teammates in Soul Wars",
+        tags = {"soul wars", "soul", "wars", "avatar", "cast"},
+        enabledByDefault = false
+)
 @Slf4j
 public class SoulWarsPlugin extends Plugin {
     @Inject

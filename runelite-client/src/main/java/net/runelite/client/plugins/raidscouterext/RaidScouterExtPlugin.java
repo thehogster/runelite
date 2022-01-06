@@ -38,6 +38,7 @@ import net.runelite.client.ws.PartyService;
 import net.runelite.client.ws.WSClient;
 import net.runelite.http.api.ws.messages.party.PartyChatMessage;
 import org.apache.commons.lang3.StringUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
@@ -50,6 +51,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 @Slf4j
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Raid Scouter Ext",
         description = "Can be used with runelite's cox plugin",

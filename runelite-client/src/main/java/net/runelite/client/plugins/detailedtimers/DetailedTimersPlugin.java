@@ -16,6 +16,7 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
 import net.runelite.client.util.ImageUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -33,7 +34,13 @@ import java.util.Base64;
 import java.util.Objects;
 import java.util.Optional;
 
-@PluginDescriptor(name = "cAnalytics", description = "Detailed timers/info for TOB - No auth", tags = {"timer", "tob"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "cAnalytics",
+        description = "Detailed timers/info for TOB - No auth",
+        tags = {"timer", "tob"},
+        enabledByDefault = false
+)
 public class DetailedTimersPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(DetailedTimersPlugin.class);
 

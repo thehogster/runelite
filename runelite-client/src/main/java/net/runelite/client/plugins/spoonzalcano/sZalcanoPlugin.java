@@ -14,13 +14,20 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Zalcano", description = "All-in-one plugin for the Zalcano.", tags = {"Zalcano"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Zalcano",
+        description = "All-in-one plugin for the Zalcano.",
+        tags = {"Zalcano"},
+        enabledByDefault = false
+)
 public class sZalcanoPlugin extends Plugin {
     @Inject
     private Client client;

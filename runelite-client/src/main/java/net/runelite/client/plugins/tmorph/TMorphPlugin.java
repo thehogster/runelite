@@ -15,11 +15,13 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
 import java.util.HashMap;
 
+@Extension
 @PluginDescriptor(
 		name = "<html><font color=#25c550>[S] Tmorph",
 		description = "Change the visual of a worn item to another item<br>Format: id,id -comment (if wanted)",

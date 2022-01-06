@@ -11,12 +11,19 @@ import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 
-@PluginDescriptor(name = "<html><font color=#25c550>[S] Vorkath", description = "", tags = {"vorkath", "vork"}, enabledByDefault = false)
+@Extension
+@PluginDescriptor(
+        name = "<html><font color=#25c550>[S] Vorkath",
+        description = "",
+        tags = {"vorkath", "vork"},
+        enabledByDefault = false
+)
 public class VorkathPlugin extends Plugin {
     private static final Logger log = LoggerFactory.getLogger(VorkathPlugin.class);
 

@@ -14,6 +14,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.DrawManager;
 import net.runelite.client.util.ImageCapture;
 import net.runelite.client.util.ImageUploadStyle;
+import org.pf4j.Extension;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.function.Consumer;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Swim Shamer",
         description = "Uploads a screenshot to discord whenever someone swims or dies in Volcanic Mine",

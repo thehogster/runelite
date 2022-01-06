@@ -30,12 +30,14 @@ import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.Text;
 import org.apache.commons.lang3.ArrayUtils;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
 import java.util.List;
 import java.util.*;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Theatre",
         description = "Pretty much everything useful for Tob in 1 plugin",

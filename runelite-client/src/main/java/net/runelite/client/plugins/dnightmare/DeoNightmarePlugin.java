@@ -12,10 +12,12 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.infobox.InfoBoxManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.Arrays;
 
+@Extension
 @PluginDescriptor(name = "[D] Nightmare", description = "Nightmare time tracking")
 public class DeoNightmarePlugin extends Plugin {
     @Inject

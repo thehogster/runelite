@@ -13,6 +13,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ColorUtil;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.awt.*;
@@ -24,9 +25,11 @@ import java.util.Set;
 
 import static net.runelite.api.MenuAction.MENU_ACTION_DEPRIORITIZE_OFFSET;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Npc Highlight",
-        description = "NPC highlight for brainlets", tags = {"SpoonNpcHighlight", "spoon"},
+        description = "NPC highlight for brainlets",
+        tags = {"SpoonNpcHighlight", "spoon"},
         conflicts = "NPC Indicators"
 )
 public class SpoonNpcHighlightPlugin extends Plugin {

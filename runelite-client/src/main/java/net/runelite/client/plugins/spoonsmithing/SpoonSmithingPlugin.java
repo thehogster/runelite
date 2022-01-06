@@ -9,11 +9,13 @@ import net.runelite.client.events.ConfigChanged;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.util.Text;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Smithing",
         description = "Game hard, me click button, me hammer metal",

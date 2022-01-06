@@ -39,12 +39,14 @@ import net.runelite.client.hiscore.HiscoreEndpoint;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.EnumSet;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Opponent Info",
         description = "Show name and hitpoints information about the NPC you are fighting",

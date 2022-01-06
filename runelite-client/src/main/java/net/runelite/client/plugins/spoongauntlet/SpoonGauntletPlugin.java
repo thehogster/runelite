@@ -16,6 +16,7 @@ import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayLayer;
 import net.runelite.client.ui.overlay.OverlayManager;
 import net.runelite.client.util.ImageUtil;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import javax.sound.sampled.*;
@@ -23,6 +24,7 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
 import java.util.*;
 
+@Extension
 @PluginDescriptor(
         name = "<html><font color=#25c550>[S] Gauntlet",
         description = "All-in-one plugin for the Gauntlet.",

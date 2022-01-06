@@ -14,13 +14,14 @@ import net.runelite.client.events.OverlayMenuClicked;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
+import org.pf4j.Extension;
 
 import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
-
+@Extension
 @PluginDescriptor(
         name = "Veng Counter",
         description = "Counts how many times each player venges",
