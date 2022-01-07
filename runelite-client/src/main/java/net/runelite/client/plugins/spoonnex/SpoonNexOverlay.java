@@ -86,14 +86,6 @@ class SpoonNexOverlay extends Overlay {
 						if(lp != null) {
 							Polygon poly = Perspective.getCanvasTilePoly(client, lp);
 							renderPoly(graphics, color, poly);
-
-							String textOverlay = Integer.toString(plugin.nex.specialTicksLeft);
-							Point textLoc = Perspective.getCanvasTextLocation(client, graphics, lp, textOverlay, 0);
-							if (textLoc != null) {
-								Point pointShadow = new Point(textLoc.getX() + 1, textLoc.getY() + 1);
-								OverlayUtil.renderTextLocation(graphics, pointShadow, textOverlay, Color.BLACK);
-								OverlayUtil.renderTextLocation(graphics, textLoc, textOverlay, color);
-							}
 						}
 					} else if(obj.getId() == 42944){
 						Color color = config.forWhy() ? plugin.raveObjects.get(index) : Color.RED;
@@ -127,17 +119,13 @@ class SpoonNexOverlay extends Overlay {
 					}
 				}
 
-				if(!plugin.activeMage.equals("") && (config.mageHighlight() != SpoonNexConfig.MageHighlightMode.ARROW || config.mageHighlight() != SpoonNexConfig.MageHighlightMode.OFF)) {
-					for (NPC npc : this.client.getNpcs()) {
-						if(npc.getName() != null && npc.getName().equals(plugin.activeMage)) {
-							Color color = config.forWhy() ? plugin.forWhyColors.get(4) : config.mageHighlightColor();
-							LocalPoint lp = npc.getLocalLocation();
-							if (lp != null) {
-								Polygon poly = Perspective.getCanvasTilePoly(client, lp);
-								renderPoly(graphics, color, poly);
-							}
+				if(plugin.activeMage != null && (config.mageHighlight() != SpoonNexConfig.MageHighlightMode.ARROW || config.mageHighlight() != SpoonNexConfig.MageHighlightMode.OFF)) {
+						Color color = config.forWhy() ? plugin.forWhyColors.get(4) : config.mageHighlightColor();
+						LocalPoint lp = plugin.activeMage.getLocalLocation();
+						if (lp != null) {
+							Polygon poly = Perspective.getCanvasTilePoly(client, lp);
+							renderPoly(graphics, color, poly);
 						}
-					}
 				}
 
 				if(plugin.covidList.size() > 0 && config.virus() != SpoonNexConfig.VirusMode.OFF) {
@@ -153,7 +141,7 @@ class SpoonNexOverlay extends Overlay {
 					}
 				}
 
-				if(config.tankHighlight()) {
+				if(config.tankHighlight() && plugin.nex.npc.getInteracting() != null) {
 					Color color = config.forWhy() ? plugin.forWhyColors.get(6) : config.tankHighlightColor();
 					LocalPoint lp = plugin.nex.npc.getInteracting().getLocalLocation();
 					if (lp != null) {
@@ -161,7 +149,9 @@ class SpoonNexOverlay extends Overlay {
 						renderPoly(graphics, color, poly);
 					}
 				}
-			}else if(plugin.nex.npc.isDead() && config.wrathWarning()) {
+			}
+
+			if(plugin.nex.currentSpecial.equals("wrath") && config.wrathWarning()) {
 				if (nexLp != null) {
 					Polygon tilePoly = Perspective.getCanvasTileAreaPoly(this.client, nexLp, 7);
 					if (tilePoly != null) {
